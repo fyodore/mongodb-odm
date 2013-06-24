@@ -533,8 +533,7 @@ Alias of @Field, with "type" attribute set to
 ---
 
 The annotated instance variable will be marked as document
-identifier. This annotation is a marker only and has no required or
-optional attributes.
+identifier. The Id uses the MongoID type.  To use an integer as the Id, the "strategy" should be set to "INCREMENT".
 
 Example:
 
@@ -549,6 +548,17 @@ Example:
     {
         /**
          * @Id
+         */
+        protected $id;
+    }
+
+    /**
+     * @Document
+     */
+    class Member
+    {
+        /**
+         * @Id(strategy="INCREMENT")
          */
         protected $id;
     }
